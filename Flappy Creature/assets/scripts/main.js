@@ -25,6 +25,10 @@ class Game {
             //console.log(e);
             if (e.key === ' ' || e.key === 'Enter') this.player.flap();
         });
+        //touch controls
+        this.canvas.addEventListener('touchstart', e => {
+            this.player.flap();
+        });
     }
 
     resize(width, height) {
@@ -36,6 +40,7 @@ class Game {
         this.ratio = this.height / this.baseHeight;
 
         this.gravity = 0.15 * this.ratio;
+        this.speed = 3 * this.ratio;
         this.background.resize();
         this.player.resize();
         //console.log(this.height, this.baseHeight, this.ratio);
